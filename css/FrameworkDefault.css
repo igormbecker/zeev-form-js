@@ -1,0 +1,37 @@
+﻿.readOnlyType{
+    background: #e9ecef;
+    pointer-events: none;
+    touch-action: none;
+}
+.custom-obrigatorio::after {
+    content: " *";
+    color: red;
+}
+.custom-row {
+    display: block;
+    clear: both;
+}
+.custom-col-md-1 {
+    float: left;
+    width: 16%;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}  
+.custom-col-md-2 {
+    float: left;
+    width: 23%;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.custom-col-md-3 {
+    float: left;
+    width: 30%;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
