@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zeev Wikipedia</title>
+    <style type="text/css">
+      body {
+        color: rgb(29, 28, 28);
+        background-color: rgb(240, 240, 240);
+        font-family: "Rubik", sans-serif;
+        font-size: 17px;
+        border-radius: 2px;
+      }
+      #master {
+        width: 100%;
+      }
+
+      #title {
+        width: 99.9%;
+        min-height: 60px;
+        font-family: "Poppins", sans-serif;
+        color: rgb(140, 59, 194);
+        text-align: center;
+        font-weight: bold;
+        border: 1px solid rgb(140, 59, 194);
+        margin-bottom: 6px;
+      }
+      #title:hover {
+        cursor: pointer;
+      }
+
+      #menu {
+        width: fit-content;
+        margin: 0;
+        padding: 0;
+        float: left;
+        border: 1px solid rgb(140, 59, 194);
+        min-width: 140px;
+        position: absolute;
+        z-index: 101;
+        background-color: rgb(240, 240, 240);
+      }
+      #menu-options {
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+      #menu-options p {
+        margin: 1px;
+        border-bottom: 1px solid rgb(140, 59, 194);
+        min-height: 50px;
+        min-width: 140px;
+      }
+      #menu-options a:link {
+        color: rgb(46, 46, 46);
+        font-weight: normal;
+        text-decoration: none;
+        padding: 8%;
+        display: block;
+      }
+      #menu-options a:hover,
+      a:active,
+      a:visited {
+        background-color: rgb(223, 223, 223);
+        color: rgb(46, 46, 46);
+      }
+
+      #menu-bar {
+        width: 20px;
+        margin: 0;
+        padding: 0;
+      }
+      #menu-bar:hover {
+        cursor: pointer;
+      }
+      #menu-bar div {
+        width: 100%;
+        padding: 2px;
+        margin: 2px;
+        background-color: rgb(140, 59, 194);
+      }
+
+      #content {
+        width: 100%;
+        float: right;
+        text-align: center;
+        margin-top: 10px;
+        z-index: 100;
+      }
+
+      @media (max-width: 68em) {
+      } /* 1088px */
+      @media (max-width: 53.5em) {
+      }
+    </style>
+  </head>
+  <body>
+    <header id="title" onclick="page.Functions.zeev_XhttpLoadPage('welcome.html');">
+      <h1>Bem-vindo ao Zeevpedia</h1>
+    </header>
+
+    <div id="master">
+      <div id="menu-bar">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <div id="menu">
+        <div id="menu-options">
+          <p>
+            <a onclick="page.Functions.zeev_XhttpLoadPage('welcome.html');" href="#">Home</a>
+          </p>
+          <p>
+            <a onclick="page.Functions.zeev_XhttpLoadPage('page1.html');" href="#">Ocultar/Exibir Campos</a>
+          </p>
+          <p>
+            <a onclick="page.Functions.zeev_XhttpLoadPage('page2.html');" href="#" >Ocultar/Exibir Tabelas</a>
+          </p>
+          <p>
+            <a onclick="page.Functions.zeev_XhttpLoadPage('page3.html');" href="#">Ocultar/Exibir Opções de Caixa de Seleção</a>
+          </p>
+          <p>
+            <a onclick="page.Functions.zeev_XhttpLoadPage('page4.html');" href="#">Validação CPF/CNPJ</a>
+          </p>
+          <p>
+            <a onclick="page.Functions.zeev_XhttpLoadPage('page5.html');" href="#">Consultar Fonte de Dados via Ajax</a>
+          </p>
+          <p>
+            <a href="cssonly.html" target="_blank">Projeto pessoal utilizando apenas CSS</a>
+          </p>          
+        </div>
+      </div>
+
+      <div id="content"></div>
+    </div>
+  </body>
+  <script type="text/javascript">
+    window.addEventListener("load", function () {
+        page.Functions.Init();
+        page.Functions.zeev_XhttpLoadPage('welcome.html');
+    });
+
+    var page = {
+
+        Functions: {
+
+            zeev_XhttpLoadPage: (function (url) {
+                document.getElementById("menu").style.display = "none";
+                var xhttp;
+                var message;
+
+                if (navigator.appName == "Microsoft Internet Explorer")
+                    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                else
+                    xhttp = new XMLHttpRequest();
+
+                if (url !== null && url !== undefined && url !== "") {
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            document.getElementById("content").innerHTML = this.responseText;
+                        } else {
+                            if (this.readyState == 4 && this.status != 200) {
+                                message = `Ocorreu um erro ao executar a consulta.\r\n${this.responseText}`;
+                                alert(message);
+                            }
+                        }
+                    };
+                    xhttp.open("GET", url, true);
+                    xhttp.send();
+                }
+            }),
+
+            Init: (async () => {
+                let divMenuBar = document.getElementById('menu-bar');
+
+                divMenuBar.onclick = function () {
+                    let divHiddenMenu = document.getElementById('menu');
+
+                    if (divHiddenMenu.style.display == "none")
+                        divHiddenMenu.style.display = "";
+                    else
+                        divHiddenMenu.style.display = "none";
+
+                };
+            })
+
+        }
+
+    }
+  </script>
+</html>
