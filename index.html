@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zeev Form</title>
-    <style type="text/css">
+    <script type="text/javascript" src="./js/FrameworkDefault.js"></script>
+    <script type="text/javascript" src="./js/ModeloExemplo.js"></script>
+    <link rel="stylesheet" href="./css/FrameworkDefault.css" />
+    <style rel="stylesheet">
       body {
         color: rgb(29, 28, 28);
         background-color: rgb(240, 240, 240);
@@ -32,6 +35,7 @@
       }
 
       #menu {
+        width: -moz-fit-content;
         width: fit-content;
         margin: 0;
         padding: 0;
@@ -98,82 +102,52 @@
   </head>
   <body>
     <header id="title" onclick="page.Functions.zeev_XhttpLoadPage('welcome.html');">
-      <h1>Bem-vindo ao Zeevpedia</h1>
+      <h1>zeev-form-js</h1>
     </header>
 
     <div id="master">
-      <div id="menu-bar">
-        <div></div>
-        <div></div>
-        <div></div>
+
+      <div id="content">
+        <p>
+          zeev-form-js version: 1.0
+        </p>
+        <p>
+          Será necessário conhecimento básico de HTML e Javascript para aplicar nosso framework no seu projeto.
+        </p>      
+        <p>
+          Para baixar nosso código fonte
+          <a href="https://github.com/smlbrasil/prj-wiki-gitbook" target="_blank" rel="noopener">Clique aqui</a>.
+        </p>
+        <p>
+          Documentação completa do framework padrão de projetos.
+          <a href="https://app.gitbook.com/s/ixZAjbUDvRwOrBzDeG2R/zeev/readme" target="_blank" rel="noopener">
+            Clique aqui
+          </a>.
+        </p>
+        <p>
+          Aplique as urls abaixo diretamente no seu código.
+        </p>
+        <p>
+          Framework Default Js
+          <a href="https://zeev-form-js.vercel.app/js/FrameworkDefault.js" target="_blank" rel="noopener">Clique aqui</a>.
+        </p>
+        <p>
+          Modelo de Exemplo Js
+          <a href="https://zeev-form-js.vercel.app/js/ModeloExemplo.js" target="_blank" rel="noopener">Clique aqui</a>.
+        </p>
+        <p>
+          Framework Default Css
+          <a href="https://zeev-form-js.vercel.app/css/FrameworkDefault.css" target="_blank" rel="noopener">Clique aqui</a>.
+        </p>
       </div>
 
-      <div id="menu">
-        <div id="menu-options">
-          <p>
-            Documentação completa do framework padrão de projetos.
-            <a href="https://app.gitbook.com/s/ixZAjbUDvRwOrBzDeG2R/zeev/readme" target="_blank">
-              Clique aqui
-            </a>.
-          </p>        
-        </div>
-      </div>
-
-      <div id="content"></div>
     </div>
   </body>
   <script type="text/javascript">
-    window.addEventListener("load", function () {
-        page.Functions.Init();
-        page.Functions.zeev_XhttpLoadPage('welcome.html');
-    });
+    window.addEventListener("load", function () {});
 
     var page = {
-
-        Functions: {
-
-            zeev_XhttpLoadPage: (function (url) {
-                document.getElementById("menu").style.display = "none";
-                var xhttp;
-                var message;
-
-                if (navigator.appName == "Microsoft Internet Explorer")
-                    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                else
-                    xhttp = new XMLHttpRequest();
-
-                if (url !== null && url !== undefined && url !== "") {
-                    xhttp.onreadystatechange = function () {
-                        if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById("content").innerHTML = this.responseText;
-                        } else {
-                            if (this.readyState == 4 && this.status != 200) {
-                                message = `Ocorreu um erro ao executar a consulta.\r\n${this.responseText}`;
-                                alert(message);
-                            }
-                        }
-                    };
-                    xhttp.open("GET", url, true);
-                    xhttp.send();
-                }
-            }),
-
-            Init: (async () => {
-                let divMenuBar = document.getElementById('menu-bar');
-
-                divMenuBar.onclick = function () {
-                    let divHiddenMenu = document.getElementById('menu');
-
-                    if (divHiddenMenu.style.display == "none")
-                        divHiddenMenu.style.display = "";
-                    else
-                        divHiddenMenu.style.display = "none";
-
-                };
-            })
-
-        }
-
-    }
+        Functions: {}
+    };
   </script>
 </html>
