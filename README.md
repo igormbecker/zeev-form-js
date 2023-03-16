@@ -1,4 +1,4 @@
-# Zeevformjs
+# zeev-form-js
 
 Information page: https://zeev-form-js-alpha.vercel.app
 
