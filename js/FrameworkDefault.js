@@ -214,7 +214,7 @@
                         this.element.forEach((element) => {
                             if ((element.type.toUpperCase() == 'RADIO') || (element.type.toUpperCase() == 'CHECKBOX')) {
                                 let tr = Zeev.Form.Functions.ZeevClosest(element, 'tr');
-                                tr.classList.add('readOnlyType');
+                                tr.classList.add('custom-readonly');
                             }
                         });
                     }
@@ -222,7 +222,7 @@
                         this.element.readOnly = true;
                     }
                     if (this.element.tagName == 'SELECT') {
-                        this.element.classList.add('readOnlyType');
+                        this.element.classList.add('custom-readonly');
                     }
                     return this;
                 };
@@ -231,7 +231,7 @@
                         this.element.forEach((element) => {
                             if ((element.type.toUpperCase() == 'RADIO') || (element.type.toUpperCase() == 'CHECKBOX')) {
                                 let tr = Zeev.Form.Functions.ZeevClosest(element, 'tr');
-                                tr.classList.remove('readOnlyType');
+                                tr.classList.remove('custom-readonly');
                             }
                         });
                     }
@@ -239,7 +239,7 @@
                         this.element.readOnly = false;
                     }
                     if (this.element.tagName == 'SELECT') {
-                        this.element.classList.remove('readOnlyType');
+                        this.element.classList.remove('custom-readonly');
                     }
                     return this;
                 };

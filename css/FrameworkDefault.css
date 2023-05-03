@@ -1,4 +1,4 @@
-﻿.readOnlyType{
+﻿.custom-readonly{
     background: #e9ecef;
     pointer-events: none;
     touch-action: none;
@@ -11,28 +11,31 @@
     display: block;
     clear: both;
 }
-.custom-col-md-1 {
+.custom-col-md-1, .custom-col-md-2, .custom-col-md-3 {
     float: left;
-    width: 16%;
     position: relative;
     min-height: 1px;
     padding-right: 15px;
     padding-left: 15px;
+    padding-bottom: 0.5%;
+}
+.custom-col-md-1, .custom-col-md-2, .custom-col-md-3 > div {
+    font-weight: bold;
+}
+.custom-col-md-1 {
+  	min-width: 266px;
+    max-width: 22%;
 }  
 .custom-col-md-2 {
-    float: left;
-    width: 23%;
-    position: relative;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
+    min-width: 266px;
+    max-width: 25%;
 }
 .custom-col-md-3 {
-    float: left;
-    width: 30%;
+    min-width: 500px;
+    max-width: 50%;
+}
+.custom-btn-clear {
     position: relative;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
+    margin-bottom: 1.8%;
 }
 /*v 1.0*/
